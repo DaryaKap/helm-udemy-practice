@@ -1,0 +1,34 @@
+myapp:
+  type: qa
+  env: web
+  retail:
+    enableFeature: true
+
+myapps:
+  data: 
+    config: 
+      appName: myapp1
+      appType: webserver
+      appTech: HTML
+      appDb: mysql
+
+podAnnotations: 
+  appName: myapp1
+  appType: webserver
+  appTech: HTML
+
+
+# Flow Control: Range with List
+namespaces:
+  - name: myapp1
+  - name: myapp2
+  - name: myapp3
+
+
+environments:
+  - name: dev
+  - name: qa
+  - name: uat
+  - name: prod
+
+

@@ -1,0 +1,7 @@
+{{/* Release Object */}}
+Release Name: {{ .Release.Name }}
+Release Namespace: {{ .Release.Namespace }}
+Release IsUpgrade: {{ .Release.IsUpgrade }}
+Release IsInstall: {{ .Release.IsInstall }}
+Release Revision: {{ .Release.Revision }}
+Release Service: {{ .Release.Service }}

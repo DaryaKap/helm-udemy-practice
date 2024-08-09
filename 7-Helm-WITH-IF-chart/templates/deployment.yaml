@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  labels:
+    app: nginx
+spec:
+{{- with .Values.myapp }}
+{{- if and .retail.enableFeature (eq .env "prod")}}
+  replicas: 5
+{{- else if eq .env "test" }}
+  replicas: 3
+{{- else }}
+  replicas: 1
+{{- end }}
+{{- end }}

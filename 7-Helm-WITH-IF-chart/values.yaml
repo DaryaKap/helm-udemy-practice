@@ -1,0 +1,20 @@
+myapp:
+  type: qa
+  env: web
+  retail:
+    enableFeature: true
+
+myapps:
+  data: 
+    config: 
+      appName: myapp1
+      appType: webserver
+      appTech: HTML
+      appDb: mysql
+
+podAnnotations: 
+  appName: myapp1
+  appType: webserver
+  appTech: HTML
+
+

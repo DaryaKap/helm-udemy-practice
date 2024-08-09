@@ -1,0 +1,34 @@
+apiVersion: v2
+name: parentchart
+description: Learn Helm Dependency Concepts
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+- name: mychart4
+  version: "0.1.0"
+  repository: "https://stacksimplify.github.io/helm-charts/"
+  alias: childchart4dev         # alias
+  condition: mychart4.enabled   # condition
+# tags:
+#  - frontend
+- name: mychart4
+  version: "0.1.0"
+  repository: "https://stacksimplify.github.io/helm-charts/"
+  alias: childchart4qa
+# tags:
+#  - frontend
+- name: mychart2
+  version: "0.4.0"
+  repository: "https://stacksimplify.github.io/helm-charts/"
+  alias: childchart2
+# tags:
+#  - backend
+  condition: mychart2.enabled
+- name: mysql
+  version: "10.1.0"
+  repository: "https://charts.bitnami.com/bitnami"
+  alias: mysqlchart
+  condition: mysql.enabled
+# tags:
+#  - db

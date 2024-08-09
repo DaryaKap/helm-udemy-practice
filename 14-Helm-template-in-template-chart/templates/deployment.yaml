@@ -1,0 +1,5 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "helmbasics.resourceName" . }}-deployment
+  labels: {{ template "helmbasics.labels" . }}-deployment

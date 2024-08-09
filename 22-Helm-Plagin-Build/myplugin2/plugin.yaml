@@ -1,0 +1,16 @@
+# myplugin2
+name: "myplugin2"
+version: "0.1.0"
+usage: "helm myplugin2"
+description: "Print Helm plugin directory"
+command: "helm ls"
+platformCommand:
+  - os: linux
+    arch: i386
+    command: "kubectl get pods"
+  - os: linux
+    arch: amd64
+    command: "kubectl get deploy"
+  - os: windows
+    arch: amd64
+    command: "kubectl get svc"

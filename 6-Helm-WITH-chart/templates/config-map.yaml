@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Config-map
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+{{- with .Values.podAnnotations }}
+  annotations:
+{{- toYaml . | nindent 4 }}        
+{{- end }}  
+  labels:
+{{- with .Values.myapp }}
+    app: nginx
+    type: {{ .type }}
+    env: {{ .env }}  
+{{- end }}
+data:
+{{- with .Values.myapps.data.config }}
+  application-name: {{ .appName }}
+  application-type: {{ .appType }}
+{{- end }}

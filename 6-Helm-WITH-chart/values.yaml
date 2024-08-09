@@ -1,0 +1,17 @@
+myapp:
+  type: qa
+  env: web
+
+
+myapps:
+  data: 
+    config: 
+      appName: myapp1
+      appType: webserver
+      appTech: HTML
+      appDb: mysql
+
+podAnnotations: 
+  appName: myapp1
+  appType: webserver
+  appTech: HTML

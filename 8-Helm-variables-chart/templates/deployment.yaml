@@ -1,0 +1,17 @@
+{{- $chartname := .Chart.Name -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+        appManagedBy: {{ $.Release.Service }}
+        appHelmChart: {{ $chartname }}
+{{- end }}
